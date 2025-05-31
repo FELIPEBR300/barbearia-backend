@@ -3,6 +3,13 @@ const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
 
+const User = require('./models/User') //mudei os 3
+const Service = require('./models/Service')
+const Appointment = require('./models/Appointment')
+
+
+
+
 // forma de ler json / middlewares
 app.use(
     express.urlencoded({
@@ -11,6 +18,9 @@ app.use(
 )
 
 app.use(express.json())
+
+// rotas da Api
+app.
 
 // rota inicial / endpoint
 app.get('/', (req , res) => {
