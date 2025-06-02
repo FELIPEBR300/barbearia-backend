@@ -4,10 +4,6 @@ const mongoose = require('mongoose')
 const app = express()
 
 const User = require('./models/User') //mudei os 3
-const Service = require('./models/Service')
-const Appointment = require('./models/Appointment')
-
-
 
 
 // forma de ler json / middlewares
