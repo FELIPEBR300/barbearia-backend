@@ -1,14 +1,11 @@
-const mongoose = require('mongoose'); //• Cadastro e login do cliente - Envio de e-mail de confirmação - POST
+const mongoose = require('mongoose'); // Modelo de Usuário  POST
 
-const User = mongoose.model('User', {
-    name: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
-    isConfirmed: { type: Boolean, default: false },
-    confirmationToken: { type: String }
-  });
-  
+const UserSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  isConfirmed: { type: Boolean, default: false },
+  confirmationToken: { type: String }
+}, { timestamps: true });
 
-
-
-module.exports = User;
+module.exports = mongoose.model('User', UserSchema);

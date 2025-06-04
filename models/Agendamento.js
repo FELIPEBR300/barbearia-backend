@@ -1,13 +1,10 @@
-const mongoose = require('mongoose'); //Agendamento - POST
+const mongoose = require('mongoose'); //Modelo de Agendamento
 
-const Agendamento = mongoose.model('Agendamento', {
-    nomeCliente: { type: String, required: true },
-    servico: { type: String, required: true },
-    data: { type: Date, required: true },
-    telefone: { type: String, required: false }
-  }, { timestamps: true });
-  
-    
+const AgendamentoSchema = new mongoose.Schema({
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  servicoId: { type: mongoose.Schema.Types.ObjectId, ref: 'Servico', required: true },
+  dataHora: { type: Date, required: true },
+  telefone: { type: String }
+}, { timestamps: true });
 
-
-module.exports = Agendamento
+module.exports = mongoose.model('Agendamento', AgendamentoSchema);
