@@ -11,7 +11,7 @@ const Agendamento = require('./models/Agendamento');
 const Confirmacao = require('./models/Confirmacao');
 const FotoReferencia = require('./models/FotoReferencia');
 
-//rotas api
+//rotas apig
 const UserRoutes = require('./routes/UserRoutes')
 
 app.use('/User', UserRoutes)
