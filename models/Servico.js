@@ -1,4 +1,4 @@
-const mongoose = require('mongoose'); //Modelo de Serviço
+const mongoose = require('mongoose');
 
 const ServicoSchema = new mongoose.Schema({
   tipo: {
@@ -6,8 +6,14 @@ const ServicoSchema = new mongoose.Schema({
     enum: ['corte', 'barba', 'combo'],
     required: true
   },
-  preco: { type: Number, required: true },
-  duracao: { type: Number, required: true } // duração em minutos
+  preco: {
+    type: Number,
+    required: true
+  },
+  duracao: {
+    type: Number,
+    required: true // duração em minutos
+  }
 }, { timestamps: true });
 
 module.exports = mongoose.model('Servico', ServicoSchema);

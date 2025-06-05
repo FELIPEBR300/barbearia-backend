@@ -1,25 +1,23 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
+
 // Middlewares
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 // Models
+require('./models/Servico'); // Apenas para garantir que o modelo seja carregado
 
-const Servico = require('./models/Servico');
-const Agendamento = require('./models/Agendamento');
-const Confirmacao = require('./models/Confirmacao');
-const FotoReferencia = require('./models/FotoReferencia');
-
-//rotas apig / oiiii
-const UserRoutes = require('./routes/UserRoutes')
-
-app.use('/User', UserRoutes)
+// Rotas
+const ServicoRoutes = require('./routes/ServicoRoutes');
+app.use('/servicos', ServicoRoutes);
 
 // Rota inicial
 app.get('/', (req, res) => {
   res.json({ message: 'Oi, Express está funcionando!' });
 });
+
 // Conexão com MongoDB
 const DB_USER = 'felipecamargobr10';
 const DB_PASSWORD = encodeURIComponent('qLKc6jUsEvFeveFA');
@@ -33,4 +31,3 @@ mongoose.connect(
   });
 })
 .catch((err) => console.error('Erro ao conectar ao MongoDB:', err));
-
