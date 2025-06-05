@@ -8,10 +8,15 @@ app.use(express.json());
 
 // Models
 require('./models/Servico'); // Apenas para garantir que o modelo seja carregado
+require('./models/User'); 
 
 // Rotas
 const ServicoRoutes = require('./routes/ServicoRoutes');
+
+const UserRoutes = require('./routes/UserRoutes'); // <-- Adicionado
+
 app.use('/servicos', ServicoRoutes);
+app.use('/usuarios', UserRoutes);
 
 // Rota inicial
 app.get('/', (req, res) => {

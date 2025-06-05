@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const User = require('../models/User'); // ou './models/User' dependendo da estrutura
+const User = require('../models/User');
 
 // Rota POST para criar usuário
 router.post('/', async (req, res) => {
@@ -26,5 +26,4 @@ router.post('/', async (req, res) => {
 });
 
 module.exports = router;
-
 
